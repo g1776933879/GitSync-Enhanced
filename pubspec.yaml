@@ -98,6 +98,8 @@ dependency_overrides:
       url: https://github.com/ViscousPot/mmap-flutter.git
       path: mmap2_flutter
       ref: c3c82e9ae850bcf12886ce9c2d3edebb980d7a41
+  # 兼容 Flutter 3.35.2：workmanager 系最新版要求 Flutter >=3.38，强制降级
+  workmanager_apple: 0.9.4
 
 dev_dependencies:
   flutter_test:
