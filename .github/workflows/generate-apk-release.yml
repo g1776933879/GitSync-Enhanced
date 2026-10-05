@@ -37,6 +37,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: 1.89.0
+          components: rustfmt
 
       - name: Create Secrets file
         run: |
@@ -70,7 +71,6 @@ jobs:
       - name: Generate Rust
         run: |
           flutter_rust_bridge_codegen generate
-          git checkout HEAD -- rust/src/frb_generated.rs
 
       - uses: nttld/setup-ndk@v1
         with:
