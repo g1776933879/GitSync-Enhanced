@@ -54,11 +54,7 @@ dependencies:
     git:
       url: https://github.com/ViscousPot/ios_document_picker
       ref: cc19fd549f23dd1f2ce3f4dd287cc653e84fd6b6
-  workmanager:
-    git:
-      url: https://github.com/fluttercommunity/flutter_workmanager.git
-      path: workmanager
-      ref: workmanager-v0.9.3
+  workmanager: ^0.8.0
   connectivity_plus: ^6.1.4
   encrypt: ^5.0.1
   cryptography: ^2.9.0
@@ -98,8 +94,8 @@ dependency_overrides:
       url: https://github.com/ViscousPot/mmap-flutter.git
       path: mmap2_flutter
       ref: c3c82e9ae850bcf12886ce9c2d3edebb980d7a41
-  # 兼容 Flutter 3.35.2：workmanager 系最新版要求 Flutter >=3.38，强制降级
-  workmanager_apple: 0.9.4
+  # 兼容 Flutter 3.35.2：workmanager 系最新版要求 Flutter >=3.38，改用 pub.dev 0.8.0 老接口全家桶
+  # workmanager_apple: 0.9.4
 
 dev_dependencies:
   flutter_test:
