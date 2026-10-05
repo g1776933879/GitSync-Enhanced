@@ -40,15 +40,10 @@ jobs:
 
       - name: Create Secrets file
         run: |
-          if [ -n "${{ secrets.SECRETS }}" ]; then
-            echo "Creating file with interpolated secrets"
-            cat <<EOF > ./lib/constant/secrets.dart
-            ${{ secrets.SECRETS }}
-            EOF
-          else
-            echo "SECRETS not set, copying template (OAuth disabled, HTTP/SSH still works)"
-            cp ./lib/constant/secrets.dart.template ./lib/constant/secrets.dart
-          fi
+          # 直接用模板生成 secrets.dart（8 个空常量）
+          # 没有 SECRETS 时 OAuth 登录禁用，但 HTTP/SSH 推送不受影响
+          cp ./lib/constant/secrets.dart.template ./lib/constant/secrets.dart
+          echo "Created secrets.dart from template (OAuth disabled, HTTP/SSH works)"
 
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v4
