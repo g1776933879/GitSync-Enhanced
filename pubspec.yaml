@@ -58,7 +58,7 @@ dependencies:
     git:
       url: https://github.com/fluttercommunity/flutter_workmanager.git
       path: workmanager
-      ref: main
+      ref: workmanager-v0.9.3
   connectivity_plus: ^6.1.4
   encrypt: ^5.0.1
   cryptography: ^2.9.0
