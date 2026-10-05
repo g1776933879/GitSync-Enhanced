@@ -154,7 +154,8 @@ class _TransferDialogState extends State<TransferDialog> {
     return _repoDirPath.isEmpty ? "仓库根目录 (${repo.name})" : "/${p.joinAll(_repoDirPath)}";
   }
 
-  bool get _isSystemEntry(String path) {
+  /// 判断是否为系统目录/文件（.git、.DS_Store），过滤掉避免误操作
+  bool _isSystemEntry(String path) {
     final n = p.basename(path);
     return n == ".git" || n == ".DS_Store";
   }
