@@ -40,10 +40,15 @@ jobs:
 
       - name: Create Secrets file
         run: |
-          echo "Creating file with interpolated secrets"
-          cat <<EOF > ./lib/constant/secrets.dart
-          ${{ secrets.SECRETS }}
-          EOF
+          if [ -n "${{ secrets.SECRETS }}" ]; then
+            echo "Creating file with interpolated secrets"
+            cat <<EOF > ./lib/constant/secrets.dart
+            ${{ secrets.SECRETS }}
+            EOF
+          else
+            echo "SECRETS not set, copying template (OAuth disabled, HTTP/SSH still works)"
+            cp ./lib/constant/secrets.dart.template ./lib/constant/secrets.dart
+          fi
 
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v4
@@ -66,6 +71,11 @@ jobs:
 
       - name: Get Packages
         run: flutter pub get
+
+      - name: Generate Rust
+        run: |
+          flutter_rust_bridge_codegen generate
+          git checkout HEAD -- rust/src/frb_generated.rs
 
       - uses: nttld/setup-ndk@v1
         with:
