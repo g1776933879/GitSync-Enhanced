@@ -633,7 +633,7 @@ class FileExplorerState extends State<FileExplorer> with WidgetsBindingObserver 
                                                             selectedPathsNotifier.value = [];
                                                             await TransferDialog.showTransferDialog(
                                                               context,
-                                                              mode: TransferMode.download,
+                                                              mode: TransferDialog.TransferMode.download,
                                                               repoRoot: widget.path,
                                                               currentDir: controller.getCurrentPath,
                                                               selectedPaths: paths,
@@ -910,7 +910,7 @@ class FileExplorerState extends State<FileExplorer> with WidgetsBindingObserver 
                                             onPressed: () async {
                                               await TransferDialog.showTransferDialog(
                                                 context,
-                                                mode: TransferMode.upload,
+                                                mode: TransferDialog.TransferMode.upload,
                                                 repoRoot: widget.path,
                                                 currentDir: controller.getCurrentPath,
                                                 selectedPaths: const [],
